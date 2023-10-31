@@ -1,0 +1,55 @@
+{# templates/index.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+{% include 'header.html.twig' %}
+    <div class="container">
+        <h1>Lista de usuarios</h1>
+        <div class="count">
+            {{ pagination.getTotalItemCount }}
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre {{ knp_pagination_sortable(pagination, '↑↓', 'user.nombre') }}</th>
+                    <th>Apellidos {{ knp_pagination_sortable(pagination, '↑↓', 'user.apellidos') }}</th>
+                    <th>Fecha de nacimiento {{ knp_pagination_sortable(pagination, '↑↓', 'user.fecnac') }}</th>
+                    <th>Sexo {{ knp_pagination_sortable(pagination, '↑↓', 'user.sexo') }}</th>
+                    <th>Estado {{ knp_pagination_sortable(pagination, '↑↓', 'user.estado') }}</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in pagination %}
+                    <tr {% if loop.index is odd %}class="color"{% endif %}>
+                        <td>{{ user.nombre }}</td>
+                        <td>{{ user.apellidos }}</td>
+                        <td>{{ user.fecnac | date('Y-m-d') }}</td>
+                        <td>{{ user.sexo }}</td>
+                        <td>
+                            {% if user.estado == 1 %}
+                                Alta
+                            {% else %}
+                                Baja
+                            {% endif %}
+                        </td>
+                        <td>
+                            <div class="btn-group" role="group" aria-label="Acciones">
+                                <a href="{{ path('edit_user', {id: user.id}) }}" class="btn btn-warning">Editar</a>
+                                <a href="{{ path('delete_user', {id: user.id}) }}" class="btn btn-danger">Borrar</a>
+                                {% if user.estado == 1 %}
+                                    <a href="{{ path('baja_user', {id: user.id}) }}" class="btn btn-secondary">Dar Baja</a>
+                                {% else %}
+                                    <a href="{{ path('alta_user', {id: user.id}) }}" class="btn btn-success">Dar Alta</a>
+                                {% endif %}
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="navigation">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{
+    "name": "sergi/poo",
+    "description": "Problema POO",
+    "license" : "MIT",
+    "autoload": {
+        "psr-4": {
+            "Mailer\\": "src"
+        }
+    },
+    "authors": [
+        {
+            "name": "sergi",
+            "email": "info@sergipaya.com"
+        }
+    ],
+    "require-dev": {
+        "codeception/codeception": "^5.0",
+        "codeception/module-phpbrowser": "^3.0",
+        "codeception/module-asserts": "^3.0"
+    }
+}

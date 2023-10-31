@@ -1,0 +1,30 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+create_user:
+    path: /create
+    controller: App\Controller\UsersController::create
+edit_user:
+    path: /edit/{id}
+    controller: App\Controller\UsersController::edit
+    requirements:
+        id: \d+
+delete_user:
+    path: /delete/{id}
+    controller: App\Controller\UsersController::delete
+    requirements:
+        id: \d+
+baja_user:
+    path: /baja/{id}
+    controller: App\Controller\UsersController::baja
+    methods: [GET]
+    requirements:
+        id: \d+
+alta_user:
+    path: /alta/{id}
+    controller: App\Controller\UsersController::alta
+    methods: [GET]
+    requirements:
+        id: \d+

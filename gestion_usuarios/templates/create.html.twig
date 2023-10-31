@@ -1,0 +1,33 @@
+{# templates/create.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% include 'header.html.twig' %}
+
+    <div class="container mt-4">
+        <h2>Crear Usuario</h2>
+
+        <form method="post">
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" name="nombre">
+            </div>
+            <div class="mb-3">
+                <label for="apellidos" class="form-label">Apellidos</label>
+                <input type="text" class="form-control" id="apellidos" name="apellidos">
+            </div>
+            <div class="mb-3">
+                <label for="fecnac" class="form-label">Fecha de Nacimiento</label>
+                <input type="date" class="form-control" id="fecnac" name="fecnac">
+            </div>
+            <div class="mb-3">
+                <label for="sexo" class="form-label">Sexo</label>
+                <select class="form-select" id="sexo" name="sexo">
+                    <option value="hombre">Hombre</option>
+                    <option value="mujer">Mujer</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Crear</button>
+        </form>
+    </div>
+{% endblock %}
