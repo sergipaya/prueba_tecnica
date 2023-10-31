@@ -9,9 +9,8 @@ otras series para probar y ejecutar para ver las soluciones.
 Este ejercicio está hecho con docker, ejecutar el siguiente comando para verlo en
 localhost.
 
-`docker compose up -d`
+`docker-compose up -d`
 
-En Windows no he conseguido que me acceda a los namespaces ni el autoload, puede que debido a la forma de acceder a las rutas.
 ## Problema UI
 Este ejercicio está implementado con mysql para generar la base de datos.
 Ejecutar symfony y una BBDD MySQL como XAMPP.
