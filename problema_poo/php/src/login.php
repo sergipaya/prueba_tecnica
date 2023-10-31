@@ -1,5 +1,8 @@
 <?php
+
 use Mailer\Mail;
+
+include 'Mail.php';
 
 session_start();
 
@@ -19,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         if (isset($_POST['forgot'])) {
             try {
-                $mail = new Mail(false, '192.168.1.22', null, null);
+                $mail = new Mail(false, '192.168.1.22');
 
                 $subject = 'Recordatorio de contraseña';
                 $message = "

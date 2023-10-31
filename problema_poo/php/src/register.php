@@ -1,5 +1,8 @@
 <?php
+
 use Mailer\Mail;
+
+include 'Mail.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombre = $_POST["nombre"];
@@ -29,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <p>Un saludo</p>
         ";
 
-        $mail->sendEmail($email, $subject, $message, true);
+        $mail->send($email, $subject, $message, true);
 
         header('Location: /?mensaje=Mensaje enviado');
     } catch (Exception $e) {

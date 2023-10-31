@@ -1,5 +1,7 @@
 <?php
 use Mailer\Mail;
+include 'Mail.php';
+
 session_start();
 $user = unserialize($_SESSION['user']);
 

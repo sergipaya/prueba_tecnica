@@ -2,6 +2,7 @@
 namespace Mailer;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+include_once("../vendor/autoload.php");
 
 class Mail {
     /**
@@ -24,7 +25,7 @@ class Mail {
     * @var <string>
     */
     private string $password;
-    public function __construct(bool $authentication, string $host, string $user, string $password){
+    public function __construct(bool $authentication, string $host, string $user='', string $password=''){
         $this->authentication = $authentication;
         $this->host = $host;
         $this->user = $user;
